@@ -9,4 +9,7 @@ let tempCelcius = Number(prompt());
 
 let tempFahrenheit = tempCelcius * 1.8 + 32;
 
-console.log(tempFahrenheit);
+console.log(
+  'O valor de ' + tempCelcius + ' celcius convertido para Fahrenheit é:'
+);
+console.log(tempFahrenheit + ' Fahrenheit');
