@@ -1,0 +1,54 @@
+/* Toda div que estiver dentro de outra div em qualquer hierarquia */
+
+/* Seletor espaço informa que estamos acessando o elemento */
+/* div div {
+  background-color: aquamarine;
+} */
+
+/* article div p {
+  background-color: blueviolet;
+} */
+
+/* Todos os p, cujo pai é uma div */
+/* div > p {
+  background-color: blueviolet;
+} */
+
+/* O primeiro elemento p que está após o h1 */
+/* h1 + p {
+  background-color: blueviolet;
+} */
+
+/* Seleciona cada elemento p que precede (vem depois de) um h1 */
+/* h1 ~ p {
+  background-color: blueviolet;
+} */
+
+/* CSS Inline = 1000 */
+
+/* 100 */
+#id_parag {
+  background-color: chartreuse;
+}
+
+/* 10 */
+.paragrafo {
+  background-color: red;
+}
+
+/* 1 */
+p {
+  background-color: blueviolet;
+}
+
+div div p {
+  background-color: brown;
+}
+
+div .seg_p {
+  background-color: green;
+}
+
+p.seg_p {
+  background-color: yellow;
+}
