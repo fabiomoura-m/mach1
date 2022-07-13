@@ -1,0 +1,52 @@
+h1 {
+    font-size: 42px;
+}
+h2 {
+    font-size: 36px;
+}
+h3 {
+    font-size: 28px;
+}
+
+/* article * {
+    background-color: yellow;
+}
+
+p {
+    background-color: blue;
+} */
+
+/* h1,
+h2,
+h3,
+small {
+    background-color: green;
+    border: 3px solid black;
+}
+
+section article p {
+    color: black;
+} */
+
+a:active {
+    color: red;
+}
+a:hover {
+    background-color: blue;
+}
+a:visited {
+    color: red;
+}
+h1:hover {
+    background-color: blue;
+    cursor: wait;
+}
+input:focus {
+    outline-color: red;
+}
+li::marker {
+    color: chartreuse;
+}
+a::before {
+    content: '\2714';
+}
