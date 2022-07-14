@@ -47,6 +47,23 @@ input:focus {
 li::marker {
     color: chartreuse;
 }
-a::before {
-    content: '\2714';
+.autor::after {
+    content: '\1F600';
+    padding: 32px;
+    font-size: 48px;
+}
+.autor::before {
+    content: 'Element';
+}
+/* [title^='h'] {
+    background-color: red;
+} */
+[href*='pg1'] {
+    background-color: blue;
+}
+li:nth-child(even) {
+    background-color: gray;
+}
+li:nth-of-type(odd) {
+    background-color: yellow;
 }
