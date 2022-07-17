@@ -22,14 +22,15 @@ console.log('Digite um número:');
 let numeroTabuada = Number(prompt());
 
 if (
-    !Number.isInteger(numeroTabuada) ||
-    numeroTabuada < 1 ||
-    numeroTabuada > 100
+    Number.isInteger(numeroTabuada) &&
+    numeroTabuada >= 1 &&
+    numeroTabuada <= 100
 ) {
+    let resultado;
+    for (let numero = 1; numero <= 10; numero++) {
+        resultado = numeroTabuada * numero;
+        console.log(`${numeroTabuada} x ${numero} = ${resultado}`);
+    }
+} else {
     return console.log('Digite um número inteiro entre 1 e 100.');
-}
-let resultado;
-for (let numero = 1; numero <= 10; numero++) {
-    resultado = numeroTabuada * numero;
-    console.log(`${numeroTabuada} x ${numero} = ${resultado}`);
 }
