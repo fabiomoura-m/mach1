@@ -1,0 +1,48 @@
+body {
+    height: 100vh;
+    margin: 0;
+}
+.back {
+    background-color: aquamarine;
+    width: 50%;
+    height: 50%;
+}
+.interno {
+    background-color: brown;
+    width: 50%;
+    height: 50%;
+}
+
+.grid_f,
+.grid_r {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 16px;
+}
+.grid_f div,
+.grid_r div {
+    height: 48px;
+    background-color: aquamarine;
+}
+.grid_f {
+    gap: 10pt;
+}
+.grid_r {
+    gap: 4vw;
+}
+
+html,
+body {
+    font-size: 62.5%;
+}
+
+.texto_e {
+    font-size: 16px;
+    /* margin: 1em; */
+}
+.texto_i p {
+    font-size: 1.6rem;
+    /* ch - baseado na altura do 0 */
+    /* ex - baseado na altura do x minúsculo */
+    /* margin: 1em; */
+}
