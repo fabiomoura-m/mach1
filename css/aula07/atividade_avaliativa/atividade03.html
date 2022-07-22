@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 03</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        display: grid;
+        grid-template-columns: 15vw 70vw 15vw;
+        grid-template-rows: 25vh 50vh 25vh;
+        grid-template-areas:
+            "header header header"
+            "nav main aside"
+            "footer footer footer"
+        ;
+    }
+
+    header {
+        background-color: orange;
+        grid-area: header;
+        text-align: center;
+    }
+
+    nav {
+        background-color: green;
+        grid-area: nav;
+        text-align: center;
+    }
+
+    main {
+        background-color: yellow;
+        grid-area: main;
+        text-align: center;
+    }
+
+    aside {
+        background-color: blue;
+        grid-area: aside;
+        text-align: center;
+    }
+
+    footer {
+        background-color: red;
+        grid-area: footer;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <header>HEADER</header>
+    <nav>NAV</nav>
+    <main>CONTEUDO</main>
+    <aside>ASIDE</aside>
+    <footer>RODAPE</footer>
+</body>
+
+</html>
