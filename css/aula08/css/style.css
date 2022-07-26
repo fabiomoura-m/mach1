@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap');
+
+:root {
+    --cor-principal: #892be2;
+    --btn-padding: 8px 16px;
+    --txt-body: #222222;
+}
+
+body {
+    margin: 0;
+    color: var(--txt-body);
+    font-family: 'Roboto', sans-serif;
+}
+.navbar {
+    height: 64px;
+    background-color: gray;
+    position: sticky;
+    top: 0;
+    opacity: 0.8;
+    /* opacity aplica tanto no elemento pai como nos elementos filhos */
+}
+
+h1 {
+    margin: 0;
+    color: var(--cor-principal);
+}
+
+.primeira {
+    background-color: aquamarine;
+    /* opacity: 0.2; */
+    height: calc(100vh - 64px);
+    width: calc(100vw - 300px);
+}
+
+.primario {
+    padding: var(--btn-padding);
+    background-color: var(--cor-principal);
+    color: white;
+    border-radius: 4px;
+    border: none;
+    transition: 0.5s;
+}
+.primario:hover {
+    background-color: black;
+}
