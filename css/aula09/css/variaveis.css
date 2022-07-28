@@ -1,0 +1,6 @@
+:root {
+    --border-color-input: #aaa;
+    --border-color-input-focus: blueviolet;
+    --text-color-input: blueviolet;
+    --placeholder-color-input: #aaa;
+}

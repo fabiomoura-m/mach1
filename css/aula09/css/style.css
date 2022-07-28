@@ -1,13 +1,16 @@
 @import url('reset.css');
+@import url('variaveis.css');
+@import url('botoes.css');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-:root {
-    --border-color-input: #aaa;
-    --border-color-input-focus: blueviolet;
-    --text-color-input: blueviolet;
-    --placeholder-color-input: #aaa;
+@font-face {
+    font-family: 'CultiveMono';
+    src: url('../assets/fonts/cultive_mono/CutiveMono-Regular.ttf')
+        format('truetype');
 }
 
 body {
+    font-family: 'Roboto', sans-serif;
     display: grid;
     grid-template-columns: auto 300px;
 }
@@ -30,6 +33,7 @@ body {
 
 .sidebar {
     background-color: darkgreen;
+    padding: 16px;
 }
 
 .rodape {
@@ -60,10 +64,47 @@ input:disabled {
     cursor: not-allowed;
 }
 
-button:disabled {
+.navegacao:hover {
+    background-color: blueviolet;
+}
+
+/* || BEM */
+
+/* || Bloco */
+.c_card {
+    background-color: white;
+    border-radius: 4px;
+    padding: 16px;
+}
+
+/* || Elemento */
+.c_card__titulo {
+    font-size: 28px;
+    margin: 8px 0;
+}
+.c_card__texto {
+    margin: 8px 0;
+}
+.c_card__botao {
+    height: 32px;
+    border-radius: 4px;
+    border: none;
+    padding: 0 8px;
+    background-color: blueviolet;
+    color: white;
+}
+
+/* || Modificador */
+.c_card__botao--desabilitado {
+    height: 32px;
+    border-radius: 4px;
+    border: none;
+    padding: 0 8px;
+    background-color: #aaaaaa;
+    color: gray;
     cursor: not-allowed;
 }
 
-.navegacao:hover {
-    background-color: blueviolet;
+code {
+    font-family: 'CultiveMono';
 }
