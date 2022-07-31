@@ -13,21 +13,19 @@
  */
 const prompt = require('prompt-sync')();
 
-console.log('Digite o número inicial de coelhos:');
-let numeroCoelhos = Number(prompt());
-
-if (!Number.isInteger(numeroCoelhos)) {
-    return console.log('Insira um número inteiro.');
+let numeroCoelhos = Number(prompt('Digite o número inicial de coelhos:'));
+if (isNaN(numeroCoelhos) || numeroCoelhos < 2) {
+    return console.log('Insira um número maior ou igual a 2.');
 }
 
-console.log('Digite a quantidade de anos:');
-let quantidadeAnos = Number(prompt());
-
-if (!Number.isInteger(quantidadeAnos)) {
-    return console.log('Insira um número inteiro.');
+let quantidadeAnos = Number(prompt('Digite a quantidade de anos:'));
+if (isNaN(quantidadeAnos)) {
+    return console.log('Insira a quantidade de anos corretamente.');
 }
+
+const MULTIPLICADOR_COELHOS = 4;
 
 for (let inicioAno = 1; inicioAno <= quantidadeAnos; inicioAno++) {
     console.log(`Ano ${inicioAno}: ${numeroCoelhos}`);
-    numeroCoelhos *= 4;
+    numeroCoelhos *= MULTIPLICADOR_COELHOS;
 }
