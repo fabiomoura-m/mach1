@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transition</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: green;
+    }
+
+    .container {
+        border: 2px solid white;
+        padding: 10px;
+    }
+
+    .elemento {
+        width: 150px;
+        height: 150px;
+        background-color: white;
+        /* transition-property: all;
+        transition-duration: 2s;
+        transition-timing-function: ease;
+        transition-delay: 0s; */
+
+        transition: all 2s ease;
+    }
+
+    .elemento:hover {
+        border-radius: 50%;
+        transform: translateX(70vw);
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="elemento"></div>
+    </div>
+    <!-- 
+        - ease - especifica um efeito de transição com início lento, rápido e final lento (esse é o padrão);
+        - linear - especifica um efeito de transição com a mesma velocidade do início ao fim;
+        - ease-in - especifica um efeito de transição com um início lento.
+        - ease-out - especifica um efeito de transição com um final lento.
+        - ease-in-out - especifica um efeito de transição com início e fim lentos;
+        - cubic-bezier(n,n,n,n) - permite definir seus próprios valores em uma função de cubic-bezier; -->
+</body>
+
+</html>

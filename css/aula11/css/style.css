@@ -1,0 +1,50 @@
+.botao {
+    background-color: blueviolet;
+    width: max-content;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    /* propriedade, time , tipo de animação, delay */
+    /* transition: background-color 2.5s cubic-bezier(0, 1, 1, 0) 0.5s; */
+    /* 0,1 -eixo x e y no ponto1; 1,0 - eixo x e eixo y no ponto2 */
+
+    /* transition-property: background-color;
+    transition-duration: 2.5s;
+    transition-timing-function: cubic-bezier(0, 1, 1, 0);
+    transition-delay: 2.5s; */
+}
+
+.botao:hover {
+    /* background-color: brown;
+    padding: 16px 32px;
+    box-shadow: 4px 4px 16px rgb(58, 58, 58);  */
+    animation: rotacao 2s;
+}
+
+.transforma {
+    width: 150px;
+    height: 200px;
+    background-color: yellow;
+    transition: 1.5s ease-in-out;
+    text-align: right;
+}
+.transforma:hover {
+    /* background-color: blue;
+    transform: rotate(360deg); */
+    /* transform: scale(2, 1); */
+    /* transform: skew(30deg, 0); */
+    animation: rotacao 3s;
+}
+
+@keyframes rotacao {
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+    50% {
+        background-color: red;
+        transform: rotate(360deg);
+        width: 300px;
+    }
+}

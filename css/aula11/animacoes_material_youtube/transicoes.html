@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transições</title>
+</head>
+<style>
+    html,
+    body {
+        font-family: sans-serif;
+        background-color: #333;
+        color: #eee;
+    }
+
+    h2 {
+        color: #458688;
+        font-size: 23px;
+    }
+
+    hr {
+        margin-top: 40px;
+        margin-bottom: 30px;
+        opacity: 0.2;
+    }
+
+    div {
+        text-align: center;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    section {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .red {
+        background-color: #e74c3c;
+    }
+
+    .blue {
+        background-color: #3498db;
+    }
+
+    .green {
+        background-color: #1abc9c;
+    }
+
+    .yellow {
+        background-color: #f1c40f;
+    }
+
+    /* Transitions */
+    .item {
+        width: 100px;
+        height: 100px;
+    }
+
+    .transitionBackground {
+        transition: background-color 1s
+    }
+
+    .transitionBackground:hover {
+        background-color: red;
+    }
+
+    .transitionSize {
+        transition: transform 1s;
+    }
+
+    .transitionSize:hover {
+        transform: scale(1.5);
+    }
+
+    .transitionRotate {
+        transition: transform 0.5s;
+    }
+
+    .transitionRotate:hover {
+        transform: rotateZ(180deg);
+    }
+
+    .transitionDelay {
+        transition: width 1s 0.5s, height 1s;
+    }
+
+    .transitionDelay:hover {
+        width: 200px;
+        height: 200px;
+    }
+
+    .transitionCheckbox {
+        width: 50px;
+        height: 50px;
+        transition: transform 0.5s;
+    }
+
+    .transitionCheckbox:checked {
+        transform: rotateY(360deg);
+    }
+
+    .transitionRadio {
+        width: 50px;
+        height: 50px;
+        transition: transform 1s;
+    }
+
+    .transitionRadio:checked {
+        transform: scale(1.4);
+    }
+
+    .transitionText {
+        width: 100%;
+        height: 50px;
+        font-size: 18px;
+        text-align: center;
+        transition: transform 1s;
+    }
+
+    .transitionText:focus {
+        transform: scaleY(0.5) scaleX(0.7) rotateZ(10deg);
+    }
+</style>
+
+<body>
+    <h1>Transições</h1>
+
+    <h2>Hover</h2>
+    <section>
+        <div class=" item blue transitionBackground">Azul</div>
+        <div class=" item yellow transitionBackground">Amarelo</div>
+        <div class=" item green transitionSize">Verde</div>
+        <div class=" item red transitionRotate">Vermelho</div>
+    </section>
+
+    <hr>
+
+    <h2>Transition Delay</h2>
+    <section>
+        <div class=" item red transitionDelay">Vermelho</div>
+    </section>
+
+    <hr>
+
+    <h2>Checked</h2>
+    <section>
+        <input type="checkbox" class="transitionCheckbox">
+        <input type="radio" name="radio" class="transitionRadio">
+        <input type="radio" name="radio" class="transitionRadio">
+    </section>
+
+    <h2>Focus</h2>
+    <section>
+        <input type="text" class="transitionText">
+    </section>
+</body>
+
+</html>
