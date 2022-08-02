@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    .informacoes {
+        width: 300px;
+        height: 300px;
+        background-color: #f8ff2e;
+        padding: 30px 5px;
+        border-radius: 50%;
+        transition: width 0.5s 0.5s, border-radius 0.5s 0.5s;
+    }
+
+    .informacoes:hover {
+        width: 400px;
+        border-radius: 20px;
+    }
+
+    .informacoes div {
+        opacity: 0;
+        transition: opacity 0.5s;
+    }
+
+    .informacoes:hover div {
+        opacity: 1;
+        transition: opacity 0.5s 1s;
+    }
+</style>
+
+<body>
+    <div class="informacoes">
+        <div>
+            <h1>Título do produto</h1>
+            <p>Lorem Ipsum is simply dummy text</p>
+        </div>
+    </div>
+</body>
+
+</html>
