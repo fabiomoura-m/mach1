@@ -8,8 +8,8 @@
     gap: 8px;
     height: 350px;
     /* width: 150px; */
-    /* flex-direction: column; */
-    flex-wrap: wrap;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
     /* flex-wrap: wrap-reverse; */
     /* flex-flow: row wrap; */
     /* justify-content: center; */
@@ -20,6 +20,7 @@
     /* align-items: flex-end; */
     /* align-items: flex-start; */
     /* align-items: baseline; */
+    align-items: center;
     /* align-content: stretch; */
     /* align-content: flex-end; */
     /* align-content: flex-start; */
@@ -31,4 +32,56 @@
     background-color: yellow;
     width: 50px;
     height: 50px;
+    flex-grow: 1;
+    /* flex-basis: 50px; */
+}
+
+.item_1 {
+    order: 3;
+}
+.item_2 {
+    order: 8;
+}
+.item_3 {
+    order: 1;
+}
+.item_4 {
+    order: 6;
+}
+.item_5 {
+    order: 4;
+}
+.item_6 {
+    order: 7;
+    align-self: flex-end;
+}
+.item_7 {
+    order: 5;
+}
+.item_8 {
+    order: 2;
+    align-self: flex-start;
+}
+
+/* .end {
+    align-self: flex-end;
+} */
+
+.item_5 {
+    /* flex: 3 1 150px; */
+    /* flex-basis: 150px;
+    flex-shrink: 1; */
+}
+
+.item_9 {
+    /* flex: 3 3 150px; */
+    /* flex-basis: 150px;
+    flex-shrink: 3; */
+}
+
+.flex_pai div:last-child {
+    background-color: red;
+}
+.flex_pai div:first-child {
+    background-color: blue;
 }
