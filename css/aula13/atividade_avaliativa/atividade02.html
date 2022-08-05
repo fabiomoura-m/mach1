@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 02</title>
+</head>
+<style>
+    .panel {
+        width: 550px;
+        height: 100px;
+        border: 2px solid black;
+        display: flex;
+        justify-content: space-evenly;
+
+    }
+
+    .elemento {
+        width: 50px;
+        height: 50px;
+        background-color: gray;
+    }
+
+    .elemento:first-child,
+    .elemento:last-child {
+        background-color: red;
+        align-self: center;
+    }
+
+    .alternate {
+        background-color: blue;
+        align-self: flex-end;
+    }
+</style>
+
+<body>
+    <div class="panel">
+        <div class="elemento"></div>
+        <div class="elemento alternate"></div>
+        <div class="elemento"></div>
+        <div class="elemento alternate"></div>
+        <div class="elemento"></div>
+        <div class="elemento alternate"></div>
+        <div class="elemento"></div>
+        <div class="elemento alternate"></div>
+        <div class="elemento"></div>
+    </div>
+</body>
+
+</html>
