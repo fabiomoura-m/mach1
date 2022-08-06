@@ -8,15 +8,19 @@ const idades = [12, 18, 13, 17, 14];
 
 console.log('Verificando se existe idade maior do que 18 anos.');
 
-let existeMaiorDe18 = idades.some(function (idade) {
+//find
+let resultado = idades.find(function (idade) {
     return idade > 18;
 });
+console.log(resultado); // se encontrar, retorna o primeiro valor encontrado, senao encontrar retorna undefined
 
-let pesquisa = idades.find(function (idade) {
-    return idade > 18;
+//includes
+let resultadoIncludes = idades.includes(18); //valor fixo
+//includes (true ou false)
+console.log(resultadoIncludes);
+
+//some
+let resultadoSome = idades.some(function (value) {
+    return value > 18;
 });
-
-let resultado = !pesquisa ? 'falso' : 'verdadeiro';
-
-console.log(existeMaiorDe18);
-console.log(resultado);
+console.log(resultadoSome); // se encontrar, retorna true, senao encontrar retorna false

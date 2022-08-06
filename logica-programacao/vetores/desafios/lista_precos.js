@@ -24,9 +24,6 @@ let valoresInferiores = listaPrecos.filter(function (preco) {
 
 let valoresInferioresOrdemCrescrente = valoresInferiores.sort((a, b) => a - b);
 
-let saidaArray = [];
 valoresInferioresOrdemCrescrente.forEach(function (valores, index) {
-    saidaArray.push(`${index + 1} - ${valores}`);
+    console.log(`${++index} - ${valores}`);
 });
-
-console.log(saidaArray);

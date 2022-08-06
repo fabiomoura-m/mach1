@@ -9,12 +9,23 @@ const idades = [12, 20, 15, 17, 19];
 
 console.log('Verificando se existe idade maior do que 18 anos.');
 
-let resultado = [];
-
-idades.forEach(function (idade, index) {
+//USANDO O FOREACH
+idades.forEach(function (idade, indice) {
     if (idade > 18) {
-        resultado.push(index);
+        return console.log(`${indice} - ${idade}`);
     }
 });
+//USANDO O FOR
+for (let i = 0; i <= idades.length; i++) {
+    if (idades[i] > 18) {
+        console.log(`${i} - ${idades[i]}`);
+    }
+}
 
-console.log(resultado);
+// let resultado = '';
+// idades.forEach((idade, index) => {
+//     if (idade > 18) {
+//         resultado += `${index} - ${idade} \n`;
+//     }
+// });
+// console.log(resultado);

@@ -166,16 +166,13 @@ let prompt = require('prompt-sync')();
 let pesquisa = prompt('Digite a marca desejada: ');
 
 let resultadoPesquisa = marcas.filter(function (marca) {
-    return marca.toLocaleLowerCase().includes(pesquisa.toLocaleLowerCase());
+    return marca.includes(pesquisa.toUpperCase());
 });
 
-let respostaSaida = [];
-resultadoPesquisa.forEach(function (marca, index) {
-    respostaSaida.push(`${index + 1} - ${marca}`);
-});
-
-if (!respostaSaida[0]) {
-    console.log('Nenhuma marca de carro foi encontrada');
-} else {
-    console.log(respostaSaida);
+if (!resultadoPesquisa[0]) {
+    return console.log('Nenhuma marca de carro foi encontrada');
 }
+
+resultadoPesquisa.forEach(function (marca, index) {
+    console.log(`${++index} - ${marca}`);
+});
