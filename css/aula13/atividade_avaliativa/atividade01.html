@@ -10,11 +10,42 @@
 <style>
     .panel {
         width: 300px;
+        border: 3px solid black;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        padding-block: 20px;
     }
 
     .elemento {
         width: 50px;
         height: 50px;
+        transition: transform 0.5s;
+    }
+
+    .elemento:hover {
+        transform: scale(1.5);
+    }
+
+    .cor-1 {
+        background-color: black;
+    }
+
+    .cor-2 {
+        background-color: blue;
+    }
+
+    .cor-3 {
+        background-color: green;
+    }
+
+    .cor-4 {
+        background-color: red;
+    }
+
+    .cor-5 {
+        background-color: yellow;
     }
 </style>
 
