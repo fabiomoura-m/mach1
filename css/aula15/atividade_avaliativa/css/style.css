@@ -1,0 +1,50 @@
+@import url('grid.css');
+
+body {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.nav {
+    height: 50px;
+    background-color: aqua;
+}
+
+.section {
+    background-color: blueviolet;
+    padding: 12px;
+}
+
+.card {
+    background-color: white;
+    height: 150px;
+}
+
+.aside {
+    background-color: brown;
+    padding: 12px;
+}
+
+.footer {
+    background-color: chartreuse;
+    height: 50px;
+}
+
+.hidden {
+    display: none;
+}
+
+@media screen and (min-width: 992px) {
+    .hidden {
+        display: block;
+        visibility: hidden;
+    }
+
+    .container {
+        height: calc(100vh - 100px);
+    }
+
+    .card {
+        height: 100%;
+    }
+}
