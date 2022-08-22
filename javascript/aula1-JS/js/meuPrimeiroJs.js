@@ -10,10 +10,25 @@
 
 //Calculadora 1 Soma
 {
+    ('use strict');
     const mensagemBonita = 'Sucesso, você somou 2 números!';
     let recebePrimeiroNumero = prompt('Digite o primeiro número');
     let recebeSegundoNumero = prompt('Digite o segundo número');
 
     console.log(mensagemBonita);
-    console.log(recebePrimeiroNumero + recebeSegundoNumero);
+    console.log(parseInt(recebePrimeiroNumero) + parseInt(recebeSegundoNumero));
+}
+
+//Calculadora 2 Subtracao
+{
+    //inicializando variaveis
+    const mensagemUsuario = 'Seu resultado é: ';
+    let primeiroNumeroSubtracao = 0;
+    let segundoNumeroSubtracao = 0;
+    let resultadoSubtracao = 0;
+
+    primeiroNumeroSubtracao = 10;
+    segundoNumeroSubtracao = 5;
+    resultadoSubtracao = primeiroNumeroSubtracao - segundoNumeroSubtracao;
+    alert(mensagemUsuario + resultadoSubtracao);
 }
