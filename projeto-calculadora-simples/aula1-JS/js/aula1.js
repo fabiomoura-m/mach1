@@ -1,6 +1,9 @@
-// alert('Aulão do Cleyton!');
-// console.log('Testando console');
-// prompt('Digite seu nome:');
+//TEMAS
+
+// COMANDOS DE SAIDA
+alert('Aulão do Cleyton!');
+console.log('Testando console');
+prompt('Digite seu nome:');
 
 // var não guarda escopo (pode redeclarar a mesma variável), let tem estrutura de escopo, const não pretendemos alterar.
 // var a = 1;
@@ -8,17 +11,26 @@
 // var a = 5;
 // console.log(a + b);
 
+// DECLARACAO DE VARIAVEIS
+var variavel = 'Uma variavel é um espaço na memória';
+let varavel2 = 'Utilizada para guardar uma informação';
+const variavel3 = 'Essas são as formas que podemos declarar';
+
+//ESCOPO 1
 //Calculadora 1 Soma
 {
     ('use strict');
     const mensagemBonita = 'Sucesso, você somou 2 números!';
-    let recebePrimeiroNumero = prompt('Digite o primeiro número');
-    let recebeSegundoNumero = prompt('Digite o segundo número');
+    let recebePrimeiroNumero = 0; // INICIALIZO COMO NUMERO
+    let recebeSegundoNumero = 0; // INICIALIZO COMO NUMERO
+    recebePrimeiroNumero = prompt('Digite o primeiro número');
+    recebeSegundoNumero = prompt('Digite o segundo número');
 
     console.log(mensagemBonita);
     console.log(parseInt(recebePrimeiroNumero) + parseInt(recebeSegundoNumero));
 }
 
+// ESCOPO 2
 //Calculadora 2 Subtracao
 {
     //inicializando variaveis
