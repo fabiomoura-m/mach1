@@ -3,11 +3,11 @@ Escreva uma função que receba dois parâmetros. O primeiro parâmetro é o ele
 que o segundo será o número de vezes que haverá repetição. Um array será retornado.
 */
 
-function repeteNumero(num, repet) {
+function repetir(num, repet) {
     let array = [];
     for (let i = 0; i < repet; i++) {
         array.push(num);
     }
     return array;
 }
-console.log(repeteNumero(['Casa'], 5));
+console.log(repetir('código', 2));
