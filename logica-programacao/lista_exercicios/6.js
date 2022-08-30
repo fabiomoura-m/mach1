@@ -13,4 +13,22 @@ function somarNumeros(array) {
     return somaNumerosArray;
 }
 
-console.log(somarNumeros([10, 10, 10]));
+function somarNumerosForEach(array) {
+    let soma = 0;
+    array.forEach(numero => {
+        soma += numero;
+    });
+    return soma;
+}
+
+function somarNumerosFor(array) {
+    let soma = 0;
+    for (let i = 0; i < array.length; i++) {
+        soma += array[i];
+    }
+    return soma;
+}
+
+console.log(somarNumeros([10, 10, 10])); //30
+console.log(somarNumerosForEach([15, 15, 15, 15])); //60
+console.log(somarNumerosFor([15, 15, 15, 15])); //60
