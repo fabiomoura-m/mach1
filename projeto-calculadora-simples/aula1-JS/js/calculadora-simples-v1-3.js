@@ -8,23 +8,27 @@
 
     switch (recebeOperacao) {
         case 'soma':
+        case '+':
             recebeResultado = `${mensagemCliente.replace('operação', 'soma')} ${
                 primeiroNumero + segundoNumero
             }`;
             break;
         case 'subtração':
+        case '-':
             recebeResultado = `${mensagemCliente.replace(
                 'operação',
                 'subtração'
             )} ${primeiroNumero - segundoNumero}`;
             break;
         case 'multiplicação':
+        case '*':
             recebeResultado = `${mensagemCliente.replace(
                 'operação',
                 'multiplicação'
             )} ${primeiroNumero * segundoNumero}`;
             break;
         case 'divisão':
+        case '/':
             recebeResultado = `${mensagemCliente.replace(
                 'operação',
                 'divisão'
