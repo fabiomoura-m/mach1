@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade Avaliativa Aula07</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    let mensagemResposta = ''
+    let listaPilotos = prompt("Digite o nome dos pilotos de acordo com a ordem de chegada. Exemplo: piloto1,piloto2,piloto3...")
+
+    if (listaPilotos === '') {
+        mensagemResposta = "Digite o nome dos pilotos conforme solicitado."
+        alert(mensagemResposta)
+    } else {
+        listaPilotos = listaPilotos.split(',')
+
+        for (let i = 0; i < listaPilotos.length; i++) {
+            if (i < 3) {
+                mensagemResposta += `Pódio – ${i + 1} – ${listaPilotos[i]} \n`
+            } else {
+                mensagemResposta += `${i + 1} – ${listaPilotos[i]} \n`
+            }
+        }
+        alert(mensagemResposta)
+    }
+
+
+
+
+
+
+
+</script>
+
+</html>
