@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atividade Avaliativa Aula 09 - Vetores</title>
+</head>
+
+<body></body>
+<script>
+    let listaProdutos = [
+        ['0', 'Sem cadastro'],
+        ['1', 'Leite'],
+        ['2', 'Ovo'],
+        ['3', 'Farinha'],
+        ['4', 'Milho'],
+        ['5', 'Café']
+    ];
+
+    let mensagemUsuario = '';
+    let recebeCodigoProduto = prompt('Digite o código do produto:');
+
+    let encontrouProduto = '';
+    for (let produto of listaProdutos) {
+        encontrouProduto = produto.indexOf(recebeCodigoProduto);
+        if (encontrouProduto !== -1) {
+            mensagemUsuario = `Produto: ${produto[1]}`;
+            alert(mensagemUsuario);
+            break;
+        } else {
+            mensagemUsuario = `${listaProdutos[0][0]} - ${listaProdutos[0][1]}`;
+        }
+    }
+
+    if (mensagemUsuario === `${listaProdutos[0][0]} - ${listaProdutos[0][1]}`) {
+        alert(mensagemUsuario);
+        let verificaAdicionarProduto = prompt(
+            `Deseja adicionar este produto? Digite sim ou não.`
+        );
+
+        if (verificaAdicionarProduto === 'sim') {
+            let recebeNovoProduto = prompt('Digite o nome do produto:');
+            let arrayNovoProduto = [recebeCodigoProduto, recebeNovoProduto];
+
+            listaProdutos.push(arrayNovoProduto);
+
+            mensagemUsuario = `Produto incluído com sucesso: ${recebeCodigoProduto} - ${recebeNovoProduto}`;
+            alert(mensagemUsuario);
+        }
+    }
+</script>
+
+</html>
