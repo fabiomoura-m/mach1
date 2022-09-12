@@ -43,39 +43,42 @@
 
     let arrayPontuacao = [];
     for (let linha of tabela) {
-        let aux = linha.at(-1);
-        arrayPontuacao.push(aux);
+        let pontuacao = linha.at(-1);
+        arrayPontuacao.push(pontuacao);
     }
 
     for (let i = 0; i < arrayPontuacao.length; i++) {
         for (let j = 0; j < arrayPontuacao.length; j++) {
-            let aux = arrayPontuacao[i];
             if (arrayPontuacao[i] > arrayPontuacao[j]) {
+                let auxiliar = arrayPontuacao[i];
                 arrayPontuacao[i] = arrayPontuacao[j];
-                arrayPontuacao[j] = aux;
+                arrayPontuacao[j] = auxiliar;
             }
         }
     }
+
+    let arrayPontuacaoFiltrado = arrayPontuacao.filter(function (
+        pontuacao,
+        index
+    ) {
+        return arrayPontuacao.indexOf(pontuacao) === index;
+    });
 
     let arrayOrdenado = [];
-    let pesquisaPontuacao;
+    let verificaPontuacao = '';
 
-    for (let pontuacao of arrayPontuacao) {
-        pesquisaPontuacao = tabela.filter(function (item) {
-            return item.includes(pontuacao);
-        });
-        if (pesquisaPontuacao.length > 1) {
-            for (let i = 0; i < pesquisaPontuacao.length; i++) {
-                arrayOrdenado.push(pesquisaPontuacao[i]);
+    for (let pontuacao of arrayPontuacaoFiltrado) {
+        for (let item of tabela) {
+            verificaPontuacao = item.indexOf(pontuacao);
+            if (verificaPontuacao !== -1) {
+                arrayOrdenado.push(item);
             }
-        } else {
-            arrayOrdenado.push(pesquisaPontuacao[0]);
         }
     }
 
-    let contador = 1;
+    let posicao = 1;
     for (let linha of arrayOrdenado) {
-        console.log(`${contador} | ${linha[0]} | ${linha.at(-1)}`);
-        contador++;
+        console.log(`${posicao} | ${linha[0]} | ${linha.at(-1)}`);
+        posicao++;
     }
 }
