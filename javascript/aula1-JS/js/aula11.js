@@ -1,3 +1,7 @@
+/*
+FUNÇÃO É BLOCO DE CÓDIGO QUE DEFINE INSTRUÇÕES ÚNICAS E BEM DEFINIDAS A SEREM EXECUTADAS, QUE PODEM OU NÃO TER UM RETORNO.
+*/
+
 let pessoa = {
     nome: 'Cleyton',
     idade: '31 anos',

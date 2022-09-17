@@ -14,14 +14,15 @@
         'Digite 5 números de CPFs separados por vírgula:'
     );
 
-    cpfUsuario = cpfUsuario.split(',');
+    cpfUsuario = cpfUsuario.replaceAll(' ', '').split(',')
+    console.log(cpfUsuario)
 
     let arrayDeCpfs = [...cpfUsuario]
 
     function validaCpf(cpf) {
-        let cpfValido = 'inválido';
+        let cpfValido = false;
         if (!isNaN(cpf) && cpf.length === 11) {
-            cpfValido = 'válido';
+            cpfValido = true;
         }
         return cpfValido;
     }
@@ -34,16 +35,17 @@
     function exibeCpfFormatado(arrayCPF) {
         let cpfFormatado = '';
         let mensagem = '';
-        let cpfValido = '';
 
         for (let cpf of arrayCPF) {
             cpfValido = validaCpf(cpf.toString());
-            if (cpfValido === 'válido') {
+            if (cpfValido) {
                 cpfFormatado = formataCpf(cpf);
+                mensagem = `O CPF ${cpfFormatado} é válido`;
             } else {
                 cpfFormatado = cpf
+                mensagem = `O CPF ${cpfFormatado} é inválido`;
             }
-            mensagem = `O CPF ${cpfFormatado} é ${cpfValido}`;
+
             alert(mensagem);
         }
     }
