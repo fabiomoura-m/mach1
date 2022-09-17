@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atividade Avaliativa Aula12 - Funções</title>
+</head>
+
+<body></body>
+<script>
+    let cpfUsuario = prompt(
+        'Digite 5 números de CPFs separados por vírgula:'
+    );
+
+    cpfUsuario = cpfUsuario.split(',');
+
+    let arrayDeCpfs = [...cpfUsuario]
+
+    function validaCpf(cpf) {
+        let cpfValido = 'inválido';
+        if (!isNaN(cpf) && cpf.length === 11) {
+            cpfValido = 'válido';
+        }
+        return cpfValido;
+    }
+
+    function formataCpf(cpf) {
+        let cpfFormatado = `${cpf.slice(0, 3)}.${cpf.slice(3, 6)}.${cpf.slice(6, 9)}-${cpf.slice(9)}`;
+        return cpfFormatado;
+    }
+
+    function exibeCpfFormatado(arrayCPF) {
+        let cpfFormatado = '';
+        let mensagem = '';
+        let cpfValido = '';
+
+        for (let cpf of arrayCPF) {
+            cpfValido = validaCpf(cpf.toString());
+            if (cpfValido === 'válido') {
+                cpfFormatado = formataCpf(cpf);
+            } else {
+                cpfFormatado = cpf
+            }
+            mensagem = `O CPF ${cpfFormatado} é ${cpfValido}`;
+            alert(mensagem);
+        }
+    }
+    exibeCpfFormatado(arrayDeCpfs);
+</script>
+
+</html>
