@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atividade Avaliativa Aula13 - Funções</title>
+</head>
+
+<body></body>
+<script>
+    let recebeSalario = Number(prompt('Digite seu salário:'))
+
+    let exibeDescontoImpostoRenda = (resultado) => {
+        alert(resultado)
+    }
+
+    let calculaDescontoImpostoDeRenda = (callback) => {
+        let calculoDesconto = 0
+        let mensagemSaida = ''
+
+        if (recebeSalario <= 1903.98) {
+            mensagemSaida = `Você está isento de imposto!`
+            return callback(mensagemSaida)
+        } else if (recebeSalario > 1903.98 && recebeSalario <= 2826.65) {
+            calculoDesconto = (recebeSalario * 0.075) - 142.8
+        } else if (recebeSalario > 2826.65 && recebeSalario <= 3751.05) {
+            calculoDesconto = (recebeSalario * 0.15) - 454.8
+        } else if (recebeSalario > 3751.05 && recebeSalario <= 4664.68) {
+            calculoDesconto = (recebeSalario * 0.225) - 636.13
+        } else if (recebeSalario > 4664.68) {
+            calculoDesconto = (recebeSalario * 0.275) - 869.36
+        }
+
+        mensagemSaida = `Você terá R$${calculoDesconto.toFixed(2)} de desconto mensal de Imposto de Renda.`
+        return callback(mensagemSaida)
+    }
+
+    calculaDescontoImpostoDeRenda(exibeDescontoImpostoRenda)
+</script>
+
+</html>
