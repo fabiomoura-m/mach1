@@ -1,4 +1,5 @@
-//let atributo = elementoCodigo.getAttribute('class'); // Recuperando o valor do atributo
+// elementoNome.setAttribute('value','Matheus'); // Setando um atributo nome
+//let atributo = elementoCodigo.getAttribute('class'); // Recuperando o valor do atributo de classe
 //console.log(atributo);
 // elementoCodigo.setAttribute('class', atributo + ' error'); // Setando um atributo
 
@@ -16,10 +17,16 @@ let elementoLista = document.getElementById('lista-produtos');
 
 let listaDeProdutos = [];
 
-elementoBotaoSalvar.addEventListener('click', salvarProduto);
-elementoBotaoConcluir.addEventListener('click', listarProdutos);
+// Essa função limpando o formulário para inserir mais um produto
+function limparFormulario() {
+    elementoCodigo.value = '';
+    elementoNome.value = '';
+    elementoDescricao.value = '';
+    elementoPreco.value = '';
+}
 
 function salvarProduto() {
+    // Recebeu em variaveis os valores do input no momento do click
     let codigo = elementoCodigo.value;
     let nome = elementoNome.value;
     let descricao = elementoDescricao.value;
@@ -32,6 +39,7 @@ function salvarProduto() {
         }
     }
 
+    // Modelo de objeto que representa o produto
     let objetoProduto = {
         codigo,
         nome,
@@ -39,20 +47,35 @@ function salvarProduto() {
         preco
     };
 
+    // Salvando no meu array um objeto
     listaDeProdutos.push(objetoProduto);
-
-    console.log(listaDeProdutos);
+    //Zerando o formulário
+    limparFormulario();
 }
-function listarProdutos() {
-    elementoFormulario.setAttribute('hidden', 'true');
-    feedback.removeAttribute('hidden');
-    for (let produtos of listaDeProdutos) {
-        elementoLista.innerHTML += `
-        <li>${produtos.nome}</li>
+// Chamada pelo forEach
+function exibirProdutos(produto) {
+    elementoLista.innerHTML += `
+        <li>${produto.nome}</li>
         <ul>
-            <li>${produtos.descricao}</li>
-            <li>${produtos.preco}</li>
+            <li>${produto.descricao}</li>
+            <li>${produto.preco}</li>
         </ul>
         `;
-    }
 }
+
+function concluirCadastro() {
+    let elementoSecaoCadastramento = document.getElementById(
+        'cadastramento-produtos'
+    );
+    let elementoSecaoListagem = document.getElementById('listagem-produtos');
+    // Controlando a exbição das seções
+    elementoSecaoCadastramento.setAttribute('class', 'inativo'); // Colocou um atributo de classe no html (inativo)
+    elementoSecaoListagem.setAttribute('class', 'ativo'); // Colocou um atributo de classe no html (ativo)
+    arrayProdutos.forEach(exibirProdutos); // FOREACH
+    // for(elemento of arrayProdutos){
+    //   console.log(elemento);
+    // }
+}
+
+elementoBotaoSalvar.addEventListener('click', salvarProduto);
+elementoBotaoConcluir.addEventListener('click', concluirCadastro);

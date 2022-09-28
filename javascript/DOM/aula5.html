@@ -17,6 +17,15 @@
     <!-- //-->
     <!-- <link rel="stylesheet" href="assets/css/style.css" /> -->
 </head>
+<style>
+    .ativo {
+        display: block;
+    }
+
+    .inativo {
+        display: none;
+    }
+</style>
 
 <body>
     <div class="container">
@@ -38,15 +47,10 @@
                 </li>
             </ol>
         </section>
-        <!-- Form Demonstração -->
-        <section>
+        <!-- Form Cadastro -->
+        <section id="cadastramento-produtos" class="ativo">
             <div class="row">
-                <div id="feedback-usuario" hidden>
-                    <h2> Lista de Produtos</h2>
-                    <ul id="lista-produtos">
-
-                    </ul>
-                </div>
+                <div id="feedback-usuario" hidden></div>
                 <form action="#" id="form">
                     <div class="mb-3">
                         <label for="codigo-produto" class="form-label">Código</label>
@@ -72,6 +76,13 @@
                     <button type="button" class="btn btn-secondary" id="botao-concluir">Concluir Cadastramento</button>
                 </form>
             </div>
+        </section>
+        <!-- Lista de produtos -->
+        <section id="listagem-produtos" class="inativo">
+            <h2> Lista cadastrada</h2>
+            <ul id="lista-produtos">
+
+            </ul>
         </section>
         <script src="assets/js/aula5.js"></script>
     </div>
