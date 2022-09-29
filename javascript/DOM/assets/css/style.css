@@ -1,0 +1,12 @@
+.ativo {
+    display: block;
+}
+
+.inativo {
+    display: none;
+}
+
+legend {
+    font-size: 10px;
+    font-weight: bold;
+}
