@@ -92,8 +92,10 @@ function Pessoa(nome, sobrenome) {
 }
 
 function PessoaFisica(nome, sobrenome) {
-    Object.call(Pessoa, nome, sobrenome);
+    Pessoa.call(this, nome, sobrenome);
 }
+
+PessoaFisica.prototype = Object.create(Pessoa.prototype);
 
 let wesdras = new PessoaFisica('Wesdras', 'Alves');
 console.log(wesdras);
