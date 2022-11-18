@@ -9,6 +9,7 @@ const labelAluno = document.querySelector('#nome-aluno');
 
 const btnBuscarPorNomeOuTodos = document.querySelector('#btnBuscar');
 const divDados = document.querySelector('#dados');
+const divLoadingMatricula = document.querySelector('#loading-matricula');
 
 optBuscaNome.addEventListener('change', e => {
     if (e.target.checked) {
@@ -24,14 +25,19 @@ optBuscaTodos.addEventListener('change', e => {
 
 function buscarMatricula() {
     const matricula = inputMatricula.value;
+    labelMatricula.innerHTML = '';
+    labelAluno.innerHTML = '';
+    divLoadingMatricula.innerHTML = 'Carregando...';
 
     const url = 'http://localhost:3000';
 
     fetch(`${url}/aluno/${matricula}`)
         .then(response => {
             if (response.ok) {
+                divLoadingMatricula.innerHTML = '';
                 return response.json();
             }
+            divLoadingMatricula.innerHTML = '';
             throw new Error('Matrícula não encontrada');
         })
         .then(jsonData => {
@@ -42,7 +48,7 @@ function buscarMatricula() {
 }
 
 function buscarNomeOuTodos() {
-    divDados.innerHTML = '';
+    divDados.innerHTML = 'Carregando...';
     let url = 'http://localhost:3000/aluno/todos';
 
     if (optBuscaNome.checked) {
@@ -54,6 +60,7 @@ function buscarNomeOuTodos() {
     fetch(url)
         .then(response => {
             if (response.ok) {
+                divDados.innerHTML = '';
                 return response.json();
             }
         })
@@ -63,9 +70,24 @@ function buscarNomeOuTodos() {
                 return;
             }
             jsonData.forEach(aluno => {
-                divDados.innerHTML += `<p>${aluno.matricula} - ${aluno.nome}</p>`;
+                divDados.innerHTML += `<p>${aluno.matricula} - ${aluno.nome} <button onClick="excluirAluno(${aluno.matricula})">Excluir Aluno</button></p>`;
             });
         });
+}
+
+function excluirAluno(matricula) {
+    const url = `http://localhost:3000/aluno/deletar?matricula=${matricula}`;
+
+    fetch(url, {
+        method: 'POST'
+    })
+        .then(response => {
+            if (response.ok) {
+                return buscarNomeOuTodos();
+            }
+            throw new Error('Matricula não encontrada');
+        })
+        .catch(error => alert(error));
 }
 
 btnBuscarMatricula.addEventListener('click', buscarMatricula);
