@@ -1,0 +1,26 @@
+.wrapper {
+    border: 1px solid black;
+    width: 220px;
+}
+
+.wrapper img {
+    width: 100%;
+}
+
+.content {
+    padding: 20px 0 0 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.content h2,
+.content p {
+    color: blue;
+}
+
+.content p {
+    margin-bottom: 30px;
+}
+.content a {
+    margin-left: auto;
+}

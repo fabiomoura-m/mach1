@@ -1,0 +1,21 @@
+.headerContainer {
+    background-color: brown;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0 20px;
+    margin-bottom: 30px;
+}
+
+.navbar {
+    display: flex;
+    gap: 10px;
+}
+
+.articles {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
