@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 import './RangeComponent.css';
 
-function RangeComponent() {
+function RangeComponent(props) {
     const [valorLeft, setValorLeft] = useState(0);
     const [valorRight, setValorRight] = useState(0);
 
     function diminuiValorLeft() {
         setValorLeft(valorLeft - 1);
     }
+
     function aumentaValorLeft() {
         if (valorLeft === valorRight) {
             return alert(
@@ -30,12 +31,32 @@ function RangeComponent() {
     }
 
     useEffect(() => {
+        function verificaValor(valor) {
+            if (valor < 0 || valor > 10) {
+                props.onDestroy();
+            }
+        }
+
         console.log(`Contador atualizado ${valorLeft}`);
-    }, [valorLeft]);
+        verificaValor(valorLeft);
+    }, [valorLeft, props]);
 
     useEffect(() => {
+        function verificaValor(valor) {
+            if (valor < 0 || valor > 10) {
+                props.onDestroy();
+            }
+        }
+
         console.log(`Contador atualizado ${valorRight}`);
-    }, [valorRight]);
+        verificaValor(valorRight);
+    }, [valorRight, props]);
+
+    useEffect(() => {
+        return () => {
+            console.log('Range Component Destruído');
+        };
+    }, []);
 
     return (
         <div className="container">
