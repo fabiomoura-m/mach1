@@ -1,0 +1,74 @@
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 50px;
+    border: 4px solid rgba(128, 128, 128, 0.374);
+    margin-top: 100px;
+}
+
+.container .title {
+    color: gray;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.container-category {
+    margin-bottom: 10px;
+}
+
+.container-category span {
+    display: block;
+    font-weight: 600;
+    color: gray;
+}
+
+.fields-category {
+    display: flex;
+    gap: 30px;
+}
+
+.fields-category > div {
+    display: flex;
+    gap: 7px;
+}
+
+.container-email,
+.container-sexo {
+    margin-bottom: 10px;
+}
+.container-email label,
+.container-sexo label {
+    display: block;
+    font-size: 11px;
+}
+.container-email input,
+.container-sexo select {
+    width: 100%;
+    border: 1px solid rgba(128, 128, 128, 0.578);
+    padding: 10px 10px;
+    outline: none;
+    border-radius: 5px;
+}
+
+.container-termos {
+    display: flex;
+    gap: 7px;
+    margin-bottom: 40px;
+}
+
+.container-button {
+    text-align: center;
+}
+.container-button button {
+    background: #7a5cfa;
+    color: white;
+    font-size: 12px;
+    padding: 15px 40px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.container-button button:hover {
+    background-color: #795cfac6;
+}
