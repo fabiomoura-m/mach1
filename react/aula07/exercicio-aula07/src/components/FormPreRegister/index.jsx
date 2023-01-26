@@ -96,14 +96,7 @@ export default function FormPreRegister() {
         } else {
             setFormValido(true);
         }
-    }, [
-        formData.email.invalido,
-        formData.senha.invalido,
-        formData.termos.invalido,
-        formData.categoria.invalido,
-        formData.email.valor,
-        formData.senha.valor
-    ]);
+    }, [formData]);
 
     return (
         <div className="container">
