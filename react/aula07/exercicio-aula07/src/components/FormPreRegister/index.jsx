@@ -22,19 +22,23 @@ export default function FormPreRegister() {
     const [formData, setFormData] = useState({
         email: {
             valor: '',
-            invalido: false
+            invalido: false,
+            showMessage: false
         },
         senha: {
             valor: '',
-            invalido: false
+            invalido: false,
+            showMessage: false
         },
         termos: {
             valor: '',
-            invalido: true
+            invalido: true,
+            showMessage: false
         },
         categoria: {
             valor: '',
-            invalido: true
+            invalido: true,
+            showMessage: false
         }
     });
 
@@ -49,10 +53,14 @@ export default function FormPreRegister() {
         const { name, value, checked } = e.target;
 
         let invalido = false;
+        let showMessage = false;
+
         if (name == 'email') {
             invalido = !emailValido(value);
+            showMessage = !emailValido(value);
         } else if (name == 'senha') {
             invalido = !senhaValida(value);
+            showMessage = !senhaValida(value);
         } else if (name == 'termos') {
             invalido = !checked;
         } else if (name == 'categoria') {
@@ -63,23 +71,24 @@ export default function FormPreRegister() {
             ...formData,
             [name]: {
                 valor: value,
-                invalido: invalido
+                invalido: invalido,
+                showMessage: showMessage
             }
         });
     }
 
-    // Função usada apenas no Focus, ao focar no campo remove a Mensagem pois seta o invalido como false.
+    // Função usada apenas no Focus, ao focar no campo remove a Mensagem pois seta o showMessage como false.
     function removerMensagem(e) {
         const { name, value } = e.target;
-        if (value == '') {
-            setFormData({
-                ...formData,
-                [name]: {
-                    valor: value,
-                    invalido: false
-                }
-            });
-        }
+
+        setFormData({
+            ...formData,
+            [name]: {
+                valor: value,
+                invalido: formData[name].invalido,
+                showMessage: false
+            }
+        });
     }
 
     // Verificação do formulario, monitora todas condições para que o formulário esteja valido ou nao, e usamos este estado para habilitar ou não o botão de submit.
@@ -137,12 +146,21 @@ export default function FormPreRegister() {
                         value={formData.email.valor}
                         onChange={salvarValorCampo}
                         onFocus={removerMensagem}
+                        onBlur={e => {
+                            e.target.value !== '' && salvarValorCampo(e);
+                        }}
                         placeholder="adicione seu email"
                         data-invalid={
-                            formData.email.invalido ? 'true' : 'false'
+                            formData.email.showMessage ? 'true' : 'false'
                         }
                     />
-                    <Message exibir={formData.email.invalido} campo="Email" />
+                    <Message
+                        exibir={
+                            formData.email.invalido &&
+                            formData.email.showMessage
+                        }
+                        campo="Email"
+                    />
                 </div>
                 <div className="container-senha">
                     <label htmlFor="senha">Senha</label>
@@ -154,8 +172,11 @@ export default function FormPreRegister() {
                             value={formData.senha.valor}
                             onChange={salvarValorCampo}
                             onFocus={removerMensagem}
+                            onBlur={e => {
+                                e.target.value !== '' && salvarValorCampo(e);
+                            }}
                             data-invalid={
-                                formData.senha.invalido ? 'true' : 'false'
+                                formData.senha.showMessage ? 'true' : 'false'
                             }
                             placeholder="digite sua senha"
                         />
@@ -165,7 +186,10 @@ export default function FormPreRegister() {
                             <IoIosEye onClick={handleChangeInputType} />
                         )}
                         <Message
-                            exibir={formData.senha.invalido}
+                            exibir={
+                                formData.senha.invalido &&
+                                formData.senha.showMessage
+                            }
                             campo="Senha"
                         />
                     </div>
