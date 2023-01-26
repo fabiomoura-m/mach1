@@ -71,13 +71,15 @@ export default function FormPreRegister() {
     // Função usada apenas no Focus, ao focar no campo remove a Mensagem pois seta o invalido como false.
     function removerMensagem(e) {
         const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: {
-                valor: value,
-                invalido: false
-            }
-        });
+        if (value == '') {
+            setFormData({
+                ...formData,
+                [name]: {
+                    valor: value,
+                    invalido: false
+                }
+            });
+        }
     }
 
     // Verificação do formulario, monitora todas condições para que o formulário esteja valido ou nao, e usamos este estado para habilitar ou não o botão de submit.
@@ -143,6 +145,9 @@ export default function FormPreRegister() {
                         onChange={salvarValorCampo}
                         onFocus={removerMensagem}
                         placeholder="adicione seu email"
+                        data-invalid={
+                            formData.email.invalido ? 'true' : 'false'
+                        }
                     />
                     <Message exibir={formData.email.invalido} campo="Email" />
                 </div>
@@ -156,6 +161,9 @@ export default function FormPreRegister() {
                             value={formData.senha.valor}
                             onChange={salvarValorCampo}
                             onFocus={removerMensagem}
+                            data-invalid={
+                                formData.senha.invalido ? 'true' : 'false'
+                            }
                             placeholder="digite sua senha"
                         />
                         {tipoInput === 'password' ? (
