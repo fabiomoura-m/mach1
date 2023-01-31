@@ -1,11 +1,12 @@
 import { Routes, Route } from 'react-router-dom';
 import MyComponent from './MyComponent/MyComponent';
-import Post from './Post';
+import Home from './pages/Home';
+import Post from './pages/Post';
 
 function Router() {
     return (
         <Routes>
-            <Route path="/" element={<MyComponent />} />
+            <Route path="/" element={<Home />} />
             <Route path="/posts" element={<MyComponent />} />
             <Route path="/posts/:id" element={<Post />} />
         </Routes>

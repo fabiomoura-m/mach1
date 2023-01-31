@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import './styles.css';
 
 export default function MyComponent() {
     const [dados, setDados] = useState([]);
@@ -29,10 +30,14 @@ export default function MyComponent() {
 
     return (
         <div>
+            <div className="navbar">
+                <Link to="/">Home</Link>
+            </div>
+
             {loading && <strong>Carregando dados...</strong>}
 
             {dados.map(post => (
-                <div key={post.id}>
+                <div key={post.id} className="container-post">
                     <Link to={`/posts/${post.id}`}>
                         <div>
                             <strong>id: </strong>

@@ -30,18 +30,23 @@ export default function Post() {
 
     return (
         <div>
-            {loading && <strong>Carregando dados...</strong>}
-
-            <div>
-                <div>
-                    <strong>id: </strong>
-                    <span>{dados.id}</span>
-                </div>
-                <div>
-                    <strong>{dados.title}</strong>
-                    <p>{dados.body}</p>
-                </div>
+            <div className="navbar">
+                <Link to="/posts">Voltar</Link>
             </div>
+            {loading ? (
+                <strong>Carregando dados...</strong>
+            ) : (
+                <div className="container-post">
+                    <div>
+                        <strong>id: </strong>
+                        <span>{dados.id}</span>
+                    </div>
+                    <div>
+                        <strong>{dados.title}</strong>
+                        <p>{dados.body}</p>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
