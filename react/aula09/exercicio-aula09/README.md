@@ -1,0 +1,4 @@
+- Crie um componente "MyComponent" que carregue uma lista de informações de uma API pública (por exemplo,https://jsonplaceholder.typicode.com/todos) usando o useEffect e o fetch. Armazene os dados em um estado e os exiba na tela.
+- Adicione um spinner/loading de carregamento que será exibido enquanto os dados são carregados.
+- Adicione uma mensagem de erro que seja exibida caso ocorra algum problema ao carregar os dados da API.
+- Adicione um <NavLink> que permita navegar para página que só carrega o conteúdo baseado no id do objeto retornado da API todos.
