@@ -1,0 +1,19 @@
+{
+  "name": "atividade_avaliativa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node dist/index"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "prompt-sync": "^4.2.0",
+    "typescript": "^5.0.2"
+  },
+  "dependencies": {
+    "@types/node": "^18.15.3",
+    "@types/prompt-sync": "^4.2.0"
+  }
+}
