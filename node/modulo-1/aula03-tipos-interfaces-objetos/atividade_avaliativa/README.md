@@ -1,6 +1,6 @@
 # Atividade Avaliativa Aula 03
 
-## Vamos fazer um algoritmo para cadastro de clientes, nele você deverá receber primeiramente o CPF do cliente, e se válido deverá coletar os demais dados como: Nome,Idade,Estado Civil,Endereço, Cidade e Estado
+  Vamos fazer um algoritmo para cadastro de clientes, nele você deverá receber primeiramente o CPF do cliente, e se válido deverá coletar os demais dados como: Nome,Idade,Estado Civil,Endereço, Cidade e Estado
 
 - Para executar essa tarefa você deverá utilizar interface no typescript;
 
