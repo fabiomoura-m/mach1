@@ -1,0 +1,9 @@
+[
+    {
+        "id": "teste@testee.com1",
+        "name": "Lucas",
+        "age": 24,
+        "email": "teste@testee.com",
+        "profile": { "type": "Pessoa Fisica", "credit": 10, "business": false }
+    }
+]
