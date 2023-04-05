@@ -1,18 +1,16 @@
 import express from 'express';
-import bodyParser from 'body-parser';
 import { Router, Request, Response } from 'express';
 import { IClient } from './interfaces/client';
-import getLastId from './utils/getLastId';
 import saveDataInJson from './utils/saveDataInJson';
 import loadDatabase from './utils/loadDatabase';
 import verifyBody from './utils/verifyBody';
+import messages from './enums/messages';
+import getQuantityClients from './utils/getQuantityClients';
 
 const app = express();
 const route = Router();
 
-app.use(bodyParser.json());
-
-const clients: IClient[] = loadDatabase();
+app.use(express.json());
 
 const bodyExpected = {
     name: 'string',
@@ -25,11 +23,13 @@ const bodyExpected = {
     }
 };
 
-route.get('/', (req: Request, res: Response) => {
-    res.json(clients);
+route.get('/clientList', (req: Request, res: Response) => {
+    const clients: IClient[] = loadDatabase();
+    res.status(200).json(clients);
 });
 
 route.post('/clientRegister', (req: Request, res: Response) => {
+    const clients: IClient[] = loadDatabase();
     const newClient: IClient = req.body;
     const isCorrectBody = verifyBody(newClient);
 
@@ -40,11 +40,11 @@ route.post('/clientRegister', (req: Request, res: Response) => {
 
         if (existingClient) {
             return res.status(400).json({
-                mensagem: `O e-mail ${newClient.email} já está cadastrado`
+                message: `${messages.clientNotSet} O e-mail ${newClient.email} já está cadastrado`
             });
         }
 
-        let lastID = getLastId(newClient) ? getLastId(newClient) : 1;
+        let quantityClients = getQuantityClients(clients);
 
         const {
             name,
@@ -55,35 +55,34 @@ route.post('/clientRegister', (req: Request, res: Response) => {
         }: IClient = req.body;
 
         const newClientFormatted: IClient = {
+            id: `${email}${quantityClients}`,
             name,
             age,
             email,
-            profile: { type, credit, business },
-            id: `${email}${lastID}`
+            profile: { type, credit, business }
         };
 
         clients.push(newClientFormatted);
         saveDataInJson(clients);
 
-        res.json('Cliente Cadastrado com sucesso');
+        res.status(200).json({ message: messages.clientRegistrerSuccess });
     } else {
-        res.json({
-            message: 'Cliente não cadastrado, dados inválidos.',
+        res.status(404).json({
+            message: messages.clientNotSet,
             bodyExpected
         });
     }
 });
 
 route.put('/clientUpdate/:id', (req: Request, res: Response) => {
+    const clients: IClient[] = loadDatabase();
     const id = req.params.id;
     const body = req.body;
     let clientIndex = clients.findIndex(client => client.id === id);
 
     // cliente não encontrado
     if (clientIndex === -1) {
-        return res
-            .status(404)
-            .json({ message: `Cliente com ID ${id} não encontrado.` });
+        return res.status(404).json({ message: messages.clientNotFind });
     }
 
     // Verifica se o corpo da requisição contém pelo menos uma propriedade válida
@@ -92,7 +91,10 @@ route.put('/clientUpdate/:id', (req: Request, res: Response) => {
         Object.prototype.hasOwnProperty.call(body, prop)
     );
     if (!hasValidProperty) {
-        return res.status(400).json({ error: 'Corpo da requisição inválido' });
+        return res.status(400).json({
+            message: messages.clientNotUpdated,
+            bodyExpected: bodyExpected
+        });
     }
 
     const currentClient = clients[clientIndex];
@@ -112,20 +114,17 @@ route.put('/clientUpdate/:id', (req: Request, res: Response) => {
     if (isvalidUpdatedClient) {
         clients[clientIndex] = updatedClient; // substitui o cliente original pelo atualizado
         saveDataInJson(clients);
-        return res
-            .status(200)
-            .json({ message: 'Cliente atualizado com sucesso' });
+        return res.status(200).json({ message: messages.clientUpdatedSuccess });
     } else {
-        return res
-            .status(400)
-            .json({
-                message:
-                    'Dados incorretos para atualizar, verifique o tipo passado.'
-            });
+        return res.status(400).json({
+            message: messages.clientNotUpdated,
+            bodyExpected: bodyExpected
+        });
     }
 });
 
 route.delete('/clientDelete/:id', (req: Request, res: Response) => {
+    const clients: IClient[] = loadDatabase();
     const id = req.params.id;
 
     let verifyId = clients.find(client => client.id === id);
@@ -135,12 +134,12 @@ route.delete('/clientDelete/:id', (req: Request, res: Response) => {
 
         saveDataInJson(newArrayClients);
 
-        res.json({
-            message: 'Cliente removido com sucesso'
+        return res.status(200).json({
+            message: messages.clientRemoveSuccess
         });
     } else {
-        res.json({
-            message: 'Cliente não encontrado'
+        return res.status(400).json({
+            message: messages.clientNotFind
         });
     }
 });
