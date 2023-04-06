@@ -1,0 +1,29 @@
+[
+    {
+        "productName": "notebook",
+        "productDescription": "notebook Dell G7",
+        "productCategory": "Eletrônicos",
+        "productCost": 3000,
+        "productTags": ["Dell, Notebook"],
+        "productRelated": [],
+        "id": 1
+    },
+    {
+        "id": 2,
+        "productName": "Monitor",
+        "productDescription": "notebook Dell G7",
+        "productCategory": "Eletrônicos",
+        "productTags": [],
+        "productCost": 3000,
+        "productRelated": []
+    },
+    {
+        "id": 3,
+        "productName": "Monitor LED",
+        "productDescription": "notebook Dell G7",
+        "productCategory": "Eletrônicos",
+        "productTags": ["Teste", "teste2"],
+        "productCost": 2000,
+        "productRelated": []
+    }
+]
