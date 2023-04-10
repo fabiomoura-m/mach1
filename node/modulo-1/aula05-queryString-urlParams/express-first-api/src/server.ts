@@ -2,10 +2,14 @@ import express from 'express';
 import { Router, Request, Response } from 'express';
 import { IStudent } from './interfaces/student';
 import { loadStudents, saveStudents } from './service/students.service';
+import createDataInJson from './utils/createDataInJson';
 import getLastId from './utils/getLastId';
 import { handleBodyRegister } from './utils/handleBodyRegister';
 
-const students: IStudent[] = loadStudents();
+const data = createDataInJson([{}])
+// const students: IStudent[] = loadStudents();
+console.log(data)
+const students: IStudent[] = data;
 
 enum messages {
     studentNotFind = 'Estudante não encontrado',

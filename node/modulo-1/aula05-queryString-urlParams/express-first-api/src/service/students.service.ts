@@ -1,7 +1,7 @@
 import fs from 'fs';
 import { IStudent } from '../interfaces/student';
 
-const dataStudentsPath = './src/model/student.json';
+const dataStudentsPath = '../students.json';
 
 function loadStudents() {
     const fileBuffer = fs.readFileSync(dataStudentsPath, 'utf-8');
